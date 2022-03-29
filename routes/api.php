@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 
 use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,6 +23,7 @@ use Illuminate\Support\Facades\Route;
 
 //public Routes
 //Route::resource('products', ProductsController::class);
+Route::post('/register', [AuthController::class, 'register']);
 Route::get('/products/search/{name}', [ProductsController::class, 'search']);
 Route::get('/products/search/{id}', [ProductsController::class, 'show']);
 Route::get('/products', [ProductsController::class, 'index']);
