@@ -23,6 +23,8 @@ use Illuminate\Support\Facades\Route;
 
 //public Routes
 //Route::resource('products', ProductsController::class);
+
+Route::post('/login', [AuthController::class, 'login']);
 Route::post('/register', [AuthController::class, 'register']);
 Route::get('/products/search/{name}', [ProductsController::class, 'search']);
 Route::get('/products/search/{id}', [ProductsController::class, 'show']);
@@ -34,6 +36,7 @@ Route::group(['middleware'=> ['auth:sanctum']],function(){
 Route::post('/products', [ProductsController::class, 'store']);
 Route::put('/products{$id}', [ProductsController::class, 'update']);
 Route::delete('/products{$id}', [ProductsController::class, 'destroy']);
+Route::post('/logout', [AuthController::class, 'logout']);
 });
 
 
